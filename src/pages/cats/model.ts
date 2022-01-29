@@ -1,11 +1,11 @@
-import { types } from "mobx-state-tree"
-import { getRootStore } from "../../models/helpers"
+import { types } from 'mobx-state-tree'
+import { getRootStore } from '../../models/helpers'
 
 export const CatsPage = types
-	.model("CatsPage", {
+	.model('CatsPage', {
 		data: types.optional(
 			types.model({
-				test: types.optional(types.string, ""),
+				test: types.optional(types.string, ''),
 			}),
 			{},
 		),
@@ -16,13 +16,13 @@ export const CatsPage = types
 			const { api } = getRootStore(self)
 
 			api.cats.search()
-			self.data.test = "test"
+			self.data.test = 'test'
 		},
 	}))
 	.views((self) => ({
 		pageModelFetching() {
 			const { api } = getRootStore(self)
-			return !(api.cats.state === "done")
+			return !(api.cats.state === 'done')
 		},
 
 		randomCats() {
