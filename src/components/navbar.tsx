@@ -11,9 +11,9 @@ export default observer(() => {
 
 	return (
 		<div>
-			<div>Navbar</div>
+			<h1 className="text-3xl font-bold">react mobx starter</h1>
 			<div>
-				<Link route={routes.home} router={router}>
+				<Link className="underline" route={routes.home} router={router}>
 					Test
 				</Link>
 			</div>
