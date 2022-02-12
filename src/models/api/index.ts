@@ -1,6 +1,6 @@
-import { types } from "mobx-state-tree"
-import { Cats } from "./cats"
+import { types } from 'mobx-state-tree'
+import { Cats } from './cats'
 
-export default types.model("API", {
-	cats: types.optional(Cats, () => Cats.create({ state: "done" })),
+export default types.model('API', {
+	cats: types.optional(Cats, () => Cats.create()),
 })

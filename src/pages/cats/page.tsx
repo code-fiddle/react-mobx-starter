@@ -1,5 +1,5 @@
-import { observer } from "mobx-react-lite"
-import { useMst } from "../../models/root"
+import { observer } from 'mobx-react-lite'
+import { useMst } from '../../models/root'
 
 export default observer(() => {
 	const {
@@ -16,7 +16,7 @@ export default observer(() => {
 		<>
 			{page.randomCats().map((cat) => {
 				return (
-					<div>
+					<div key={cat.id}>
 						<p>{cat.id}</p>
 						<img src={cat.url} />
 					</div>

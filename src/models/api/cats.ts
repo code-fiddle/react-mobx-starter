@@ -1,14 +1,14 @@
-import { flow, types } from "mobx-state-tree"
-import { getJson } from "../../helpers/api"
+import { flow, types } from 'mobx-state-tree'
+import { getJson } from '../../helpers/api'
 
 export const CATS_API_V1 = import.meta.env.VITE_CATS_API_V1
 
 export enum CatRoute {
-	IMAGES = "images",
-	SEARCH = "search",
+	IMAGES = 'images',
+	SEARCH = 'search',
 }
 
-export const Cat = types.model("Cat", {
+export const Cat = types.model('Cat', {
 	id: types.identifier,
 	url: types.string,
 	width: types.number,
@@ -16,10 +16,13 @@ export const Cat = types.model("Cat", {
 })
 
 export const Cats = types
-	.model("Cats", {
+	.model('Cats', {
 		cats: types.array(Cat),
 		cache: types.frozen<{ [key: string]: any }>(),
-		state: types.enumeration("State", ["pending", "done", "failure"]),
+		state: types.optional(
+			types.enumeration('State', ['pending', 'done', 'failure']),
+			'done',
+		),
 		lastSuccessfulFetch: types.optional(types.number, -Infinity),
 	})
 	.actions((self) => ({
