@@ -1,6 +1,6 @@
-import { getRoot, IAnyStateTreeNode, Instance } from "mobx-state-tree"
-import { RealRootModel } from "./root"
+import { getRoot, IAnyStateTreeNode } from "mobx-state-tree"
+import { RealRootModelInstance } from "./root"
 
-export function getRootStore(node: IAnyStateTreeNode) {
-	return getRoot(node) as Instance<typeof RealRootModel>
+export function getRootStore(node: IAnyStateTreeNode): RealRootModelInstance {
+	return getRoot(node) as RealRootModelInstance
 }
