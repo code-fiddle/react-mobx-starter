@@ -1,5 +1,5 @@
 import { flow, types } from 'mobx-state-tree'
-import { getJson } from '../../helpers/api'
+import { request } from '../../helpers/api'
 
 export const CATS_API_V1 = import.meta.env.VITE_CATS_API_V1
 
@@ -28,6 +28,9 @@ export const Cats = types
 	.actions((self) => ({
 		search: flow(function* () {
 			const url = `${CATS_API_V1}/${CatRoute.IMAGES}/${CatRoute.SEARCH}`
-			self.cats = yield getJson(url)
+			self.cats = yield request({
+				url,
+				method: 'get',
+			})
 		}),
 	}))
