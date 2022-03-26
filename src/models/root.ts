@@ -2,10 +2,12 @@ import makeInspectable from 'mobx-devtools-mst'
 import { RouterStore } from 'mobx-router'
 import { Instance, types } from 'mobx-state-tree'
 import { createContext, useContext } from 'react'
+import { NotFoundPage } from '../pages/404/model'
 import { CatsPage } from '../pages/cats/model'
 import ApiStore, { APIType } from './api'
 
 const PagesStore = types.model('Pages', {
+	notFound: types.optional(NotFoundPage, () => NotFoundPage.create()),
 	cats: types.optional(CatsPage, () => CatsPage.create()),
 })
 
