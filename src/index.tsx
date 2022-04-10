@@ -2,7 +2,7 @@ import { Box, ChakraProvider } from '@chakra-ui/react'
 import { observer } from 'mobx-react-lite'
 import { MobxRouter, startRouter } from 'mobx-router'
 import { StrictMode } from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import Navbar from './components/navbar'
 import events, { LogLevel } from './events/events'
 import './index.scss'
@@ -33,11 +33,23 @@ const App = observer(() => {
 	)
 })
 
-render(
-	<StrictMode>
-		<Provider value={rootStore}>
-			<App />
-		</Provider>
-	</StrictMode>,
-	document.getElementById('root'),
-)
+const container = document.getElementById('root')
+if (container) {
+	const root = createRoot(container)
+	root.render(
+		<StrictMode>
+			<Provider value={rootStore}>
+				<App />
+			</Provider>
+		</StrictMode>,
+	)
+}
+
+// render(
+// 	<StrictMode>
+// 		<Provider value={rootStore}>
+// 			<App />
+// 		</Provider>
+// 	</StrictMode>,
+// 	document.getElementById('root'),
+// )
