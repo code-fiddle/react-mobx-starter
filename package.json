@@ -15,6 +15,8 @@
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
 		"framer-motion": "^6.3.3",
+		"i18next": "^21.7.1",
+		"i18next-xhr-backend": "^3.2.2",
 		"mobx": "6.5.0",
 		"mobx-react": "7.4.0",
 		"mobx-react-lite": "^3.4.0",
@@ -23,6 +25,7 @@
 		"mst-middlewares": "5.1.4",
 		"react": "18.1.0",
 		"react-dom": "18.1.0",
+		"react-i18next": "^11.16.9",
 		"react-icons": "^4.3.1"
 	},
 	"devDependencies": {
